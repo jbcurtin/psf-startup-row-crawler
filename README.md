@@ -12,7 +12,7 @@ PuPPy is one of the world's largest Python used groups. One part of PuPPy's miss
 
 ### Deploying The Crawler - Extended
 
-After launching an [AMI into EC2](https://cloud-images.ubuntu.com/locator/ec2/), you'll need to create an entry in your `$HOME/.ssh/config` file that looks like the following.
+After launching an [AMI(debian) into EC2](https://cloud-images.ubuntu.com/locator/ec2/), you'll need to create an entry in your `$HOME/.ssh/config` file that looks like the following.
 ```
 Host psf
   Hostname 127.0.0.1
