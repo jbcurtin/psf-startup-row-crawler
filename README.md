@@ -1,9 +1,7 @@
 # PSF Entity Discovery
 
 ## Reason for Existance
-PuPPy is one of the world's largest Python used groups. One part of PuPPy's mission is helping startups that use Python.
-
-PuPPy is interested in identifying startups that have been running for less than 2.5 years. This crawler helps reduce time finding these startups by following links into websites and then indexes one or two pages deep into the website.
+PuPPy is one of the world's largest Python used groups. One part of PuPPy's mission is helping startups that use Python. This crawler helps reduce time finding these startups by following links into websites and then indexes one or two pages deep into the website.
 
 ## Deploying the Spiders
 
