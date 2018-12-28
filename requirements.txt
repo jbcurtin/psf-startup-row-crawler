@@ -1,0 +1,8 @@
+nltk==3.2.5
+numpy==1.13.3
+pyaml==17.10.0
+Scrapy==1.4.0
+scrapy-crawlera==1.2.4
+scrapy-redis==0.6.8
+bs4==0.0.1
+python-slugify==1.2.4
