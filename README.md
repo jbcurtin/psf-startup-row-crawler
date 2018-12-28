@@ -1,7 +1,7 @@
 # PSF Entity Discovery
 
 ## Reason for Existance
-The Python Software Foundation is interested in identifying startups that have been running for less than 2.5 years. This spider helps reduce time finding these startups by following links into websites and then indexes one or two pages deep into the website.
+The PuPPy is interested in identifying startups that have been running for less than 2.5 years. This spider helps reduce time finding these startups by following links into websites and then indexes one or two pages deep into the website.
 
 ## Deploying the Spiders
 
