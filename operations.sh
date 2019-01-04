@@ -66,7 +66,10 @@ EOF
 fi
 if [ "$1" == 'start-all' ]; then
   # So that we're not running type instances of the same cluster
-  kill -9 $(ps aux|grep $spider_name|grep scrapy |awk '{print $2}')
+  processes="$(ps aux|grep $spider_name|grep scrapy |awk '{print $2}')"
+  if [ ! -z "$processes" ]; then
+    kill -9 $processes
+  fi
   source env/bin/activate
   find $inputs -name "*.csv"| while read filename; do
     basename="$(basename "$filename")"
