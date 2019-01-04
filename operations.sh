@@ -5,6 +5,7 @@ config_file="$PWD/pyeye/config.yml"
 opts_dir="$PWD/pyeye"
 inputs="$PWD/pyeye/inputs"
 outputs="$PWD/pyeye/outputs"
+APT_OPTIONS='-o Dpkg::Options::=--force-confdef -o Dpkg::Options::=--force-confnew'
 
 if [ "$1" == 'undeploy' ];then
   host='psf'
@@ -15,7 +16,7 @@ fi
 if [ "$1" == 'bootstrap' ]; then
   host='psf'
   username='ubuntu'
-  ssh $username@$host 'export LC_ALL="en_US.UTF-8"; export LC_CTYPE="en_US.UTF-8"; export DEBIAN_FRONTEND=noninteractive && sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install htop rsync -y'
+  ssh $username@$host "export LC_ALL="en_US.UTF-8"; export LC_CTYPE="en_US.UTF-8"; export DEBIAN_FRONTEND=noninteractive && sudo apt-get $APT_OPTIONS update && sudo apt-get $APT_OPTIONS upgrade -y && sudo apt-get $APT_OPTIONS install htop rsync -y"
 fi
 if [ "$1" == 'deploy' ]; then
   host='psf'
@@ -28,10 +29,10 @@ if [ "$1" == 'deploy' ]; then
 export LC_ALL="en_US.UTF-8"
 export LC_CTYPE="en_US.UTF-8"
 sudo DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
-sudo DEBIAN_FRONTEND=noninteractive apt-get update
-sudo DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get $APT_OPTIONS update
+sudo DEBIAN_FRONTEND=noninteractive apt-get $APT_OPTIONS upgrade -y
 # sudo locale-gen --purge en_US.UTF-8
-sudo DEBIAN_FRONTEND=noninteractive apt-get install python3 python3-dev build-essential virtualenv redis-server -y
+sudo DEBIAN_FRONTEND=noninteractive apt-get $APT_OPTIONS install python3 python3-dev build-essential virtualenv redis-server -y
 pushd /home/$username/pyeye 2>/dev/null 1>/dev/null
 bash \$PWD/operations.sh install
 bash \$PWD/operations.sh start-all
